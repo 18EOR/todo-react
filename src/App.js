@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./index.scss";
+import TodoCreator from "./components/TodoCreator";
+import React, {useState} from 'react';
 
 function App() {
+  const [displayActive, setDisplayActive] = useState(true)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="todo">
+        <div className="page-title">TODO LIST</div>
+        <div className="menus">
+            <div onClick={() => setDisplayActive(true)} className={displayActive ? "menu-element active" : "menu-element"}>
+              <div>
+                <i className="fas fa-clipboard-list icon"></i>Active
+              </div>
+            </div>
+            <div onClick={() => setDisplayActive(false)} className={displayActive ? "menu-element" : "menu-element active"}>
+              <i className="fas fa-clipboard-check icon"></i>Completed
+            </div>
+          </div>
+          <TodoCreator displayActive={displayActive}/>
+      </div>
     </div>
   );
 }
