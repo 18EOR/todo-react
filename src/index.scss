@@ -129,11 +129,25 @@ code {
   padding: 7px;
   border-radius: 4px;
   font-weight: 500;
+
+  animation: todoAnimation 0.5s ease-in-out 0s 1 alternate;
+
   .todo-text {
     margin: 0 4px;
   }
   &:hover {
     background: darken($lighter_grey, 1%);
+  }
+}
+
+@keyframes todoAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-2%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
 
